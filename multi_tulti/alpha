@@ -1,1 +1,133 @@
+using System;
+
+namespace podprogramy
+{
+    /*
+     * Rzeczy, które chciałbym dodać:
+     * -powrót do głównego menu
+     * -zabezpieczenie przed niewpisaniem liczb w kalkulatorze
+     * -kolorki
+     * -rozbudować kalkulator
+     */
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Witaj w wielofunkcyjnym programie (alpha)\nKtóra funkcja Cię interesuje?\n" +
+                "1.Kalkulator");
+            string wybor1 = Console.ReadLine();
+            int wybor;
+
+            if (int.TryParse(wybor1, out wybor) == false)
+                Console.WriteLine("Wybierz liczbę z zakresu liczb 1-1!");
+            else 
+            {
+                switch (wybor)
+                {
+                    case 1:
+                        {
+                            kalkulator();
+                            break;
+                        }
+                }
+            }
+
+                
+            
+
+            Console.ReadKey();
+        }
+        static void kalkulator()
+        {
+            Console.WriteLine("Kalkulator\n" +
+                "1.Nowe liczby" +
+                "2.Dodawanie" +
+                "3.Odejmowanie" +
+                "4.Mnożenie" +
+                "5.Dzielenie\n");
+
+            string Licz1x, Licz2x;
+            float Licz1, Licz2;
+            string wybor1 = Console.ReadLine();
+            int wybor;
+
+            if (int.TryParse(wybor1, out wybor) == false)
+                Console.WriteLine("Wybierz opcję z przedziału 1-5");
+            else 
+                {
+                switch (wybor)
+                {
+                    case 1:
+                        {
+                        Console.Clear();
+
+                        Console.WriteLine("Wprowadź pierwszą liczbę:");
+                        Licz1x = Console.ReadLine();
+                        if (float.TryParse(Licz1x, out Licz1) == false)
+                            Console.WriteLine("Wprowadź liczbę stało, lub zmiennoprzecinkową");
+                        else
+                        {
+
+                        }
+
+                        Console.WriteLine("Wprowadź drugą liczbę:");
+                        Licz2x = Console.ReadLine();
+                        if (float.TryParse(Licz2x, out Licz2) == false)
+                            Console.WriteLine("Wprowadź liczbę stało, lub zmiennoprzecinkową");
+                        else
+                        {
+
+                        }
+                        //TUTAJ POWINIEN BYĆ POWRÓT DO MENU;
+                        break;
+                        }
+                    case 2:
+                        {
+                            float wynik = Licz1 + Licz2;
+                            Console.WriteLine("Wynik dodawania "+Licz1+" i "+Licz2+"to: "+);
+                            break;
+                        }
+                    }
+
+                }
+
+
+            Console.ReadKey();
+        }
+
+
+
+
+
+
+
+    }
+}
+/*
+             string [,] DNI = new string[7, 3]; 
+            string i1;
+
+
+            for (int i = 0; i < 7; i++)
+            {
+                //for(int j=0;j<;j++)
+                i1 = (i+1).ToString();
+                DNI[i, 0] = i1;
+                Console.WriteLine("Wprowadź nazwę dnia tygodnia nr: " + (i+1) + " po polsku");
+                DNI[i, 1] = Console.ReadLine();
+                Console.WriteLine("Wprowadź nazwę dnia tygodnia nr: " + (i+1) + " po angielsku");
+                DNI[i, 2] = Console.ReadLine();
+                
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    Console.Write(DNI[i,j]+" ");
+                }
+                Console.WriteLine("");            
+            }
+            Console.ReadKey();
+             */
 
