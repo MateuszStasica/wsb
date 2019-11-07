@@ -1,0 +1,61 @@
+using System;
+
+namespace hardkorowe_zadanie
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            uint x = 10;
+
+                try
+                {
+                    Console.WriteLine("Podaj dzień tygodnia (1-5)");
+                }
+                catch
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("ERROR");
+                }
+                finally
+                {
+                    Console.WriteLine("x = {0}", x);
+                }
+            
+            //==================================================================================
+
+            switch(x)
+            {
+                case 1:
+                    Console.WriteLine("Poniedziałek");
+                    break;
+                case 2:
+                    Console.WriteLine("Wtorek");
+                    break;
+                case 3:
+                    Console.WriteLine("Środa");
+                    break;
+                case 4:
+                    Console.WriteLine("Czwartek");
+                    break;
+                case 5:
+                    Console.WriteLine("Piątek");
+                    break;
+                case 6://MÓJ PIERWSZY WŁASNY WYJĄTEK! WYWALI UŻYTKOWNIKA Z PROGRAMU I POKAŻE BŁĄD
+                    throw new System.Exception("W weekendy nie pracujemy, wybierz inny dzień:");
+                    break;
+                case 7://MÓJ PIERWSZY WŁASNY WYJĄTEK! WYWALI UŻYTKOWNIKA Z PROGRAMU I POKAŻE BŁĄD
+                    throw new System.Exception("W weekendy nie pracujemy, wybierz inny dzień:");
+                    break;
+                default:
+                    Console.WriteLine("Przedział 1-5 głupku");
+                    break;
+            }
+           
+            
+           
+            
+        }
+    }
+}
