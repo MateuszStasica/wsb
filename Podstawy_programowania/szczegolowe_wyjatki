@@ -1,0 +1,47 @@
+using System;
+
+namespace wyjatki_szczegolowe
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            uint number;
+            while(true)
+            {
+            Console.WriteLine("Wprowadź liczbę całkowitą: ");
+            string x = Console.ReadLine();
+
+                try
+                {
+                    number = uint.Parse(x);
+                    break;
+                }
+                catch(FormatException) //BŁĘDNY FORMAT
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Wprowadź liczbę w poprawnym formacie np. 4\n");
+                }
+                catch(OverflowException) //POZA ZAKRESEM
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Liczba jest poza dopuszczalnym zakresem\n");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Dopuszczalny zakres: <0; 4 294 967 295>");
+                }
+                catch(ArgumentNullException) //WARTOŚĆ NULL
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Wartość nie może być pusta");
+                }
+                
+            }
+            Console.WriteLine("Wprowadziłeś poprawną wartość: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(number);
+        }
+    }
+}
