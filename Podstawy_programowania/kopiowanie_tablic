@@ -1,0 +1,39 @@
+using System;
+
+namespace wyjatki_kopwiowanie_tablic
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Wprowadź liczbę całkowitą");
+
+            uint number;
+            while(true) //DOPÓKI UŻYTKOWNIK PODAJE BŁĘDNĄ WARTOŚĆ, PROGRAM BĘDZIE KRZYCZAŁ I KAZAŁ PODAĆ POPRAWNĄ
+            {
+                string x = Console.ReadLine();
+                try
+                    {
+                        number = uint.Parse(x);
+                        break; //KIEDY PODA POPRAWNĄ, CZYLI INT, PRZERYWA PROGRAM
+                    }
+                    catch (SystemException e)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("ERROR");
+                        Console.WriteLine(e.Message);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Podaj liczbę całkowitą!");
+                       
+                    }
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Clear();
+            Console.WriteLine("Poprawne dane: {0}", number);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.ReadKey();
+        }
+    }
+}
