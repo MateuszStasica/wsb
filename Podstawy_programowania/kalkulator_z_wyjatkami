@@ -1,0 +1,112 @@
+using System;
+
+namespace kalkulator_profeszjonal
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("WITAJ W MOJIM KALKÓLATOSZE PROFESZJONAL EDYSZYN V1.0");
+
+            Console.WriteLine("Wybierz jedną z poniższych opcji:\n" +
+                "1.Dodawanie\n" +
+                "2.Odejmowanie\n" +
+                "3.Mnożenie\n" +
+                "4.Dzielenie");
+
+           // Console.Write("Podaj liczbę całkowitą: ");
+
+            string x = Console.ReadLine();
+            int choice;
+
+            if (int.TryParse(x, out choice) == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR\nWybierz opcję 1-4!");
+            }
+            else
+            {
+                
+                Console.Clear();
+                string Licz1, Licz2;
+                int wynik;
+                int Licz1X, Licz2X;
+
+
+                switch (choice)
+                {
+                    case 1:
+                        try
+                        {//TRZEBA ZADEKLAROWAĆ ZMIENNE PRZED TRY'EM
+                            Console.WriteLine("Podaj pierwszą liczbę: ");
+                            Licz1 = Console.ReadLine();
+                            int.TryParse(Licz1, out Licz1X);
+                        }
+                        catch(FormatException)
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("ERROR\nUżyj poprawnego formatu np. 13");
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("ERROR\nLiczba poza zakresem!");
+                        }
+
+
+
+                        Console.WriteLine("Podaj drugą liczbę: ");
+                        Licz2 = Console.ReadLine();
+                        int.TryParse(Licz2, out Licz2X);
+
+                        wynik = Licz1X + Licz2X;
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Wynik działania {0}+{1} wynosi: {3}", Licz1X,Licz2X,wynik);
+                        break;
+                    case 2:
+                        Console.WriteLine("Podaj pierwszą liczbę: ");
+                        Licz1 = Console.ReadLine();
+                        int.TryParse(Licz1, out Licz1X);
+
+                        Console.WriteLine("Podaj drugą liczbę: ");
+                        Licz2 = Console.ReadLine();
+                        int.TryParse(Licz2, out Licz2X);
+
+                        wynik = Licz1X - Licz2X;
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Wynik działania {0}-{1} wynosi: {3}", Licz1X, Licz2X, wynik);
+                        break;
+                    case 3:
+                        Console.WriteLine("Podaj pierwszą liczbę: ");
+                        Licz1 = Console.ReadLine();
+                        int.TryParse(Licz1, out Licz1X);
+
+                        Console.WriteLine("Podaj drugą liczbę: ");
+                        Licz2 = Console.ReadLine();
+                        int.TryParse(Licz2, out Licz2X);
+
+                        wynik = Licz1X * Licz2X;
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Wynik działania {0}*{1} wynosi: {3}", Licz1X, Licz2X, wynik);
+                        break;
+                    case 4:
+                        Console.WriteLine("Podaj pierwszą liczbę: ");
+                        Licz1 = Console.ReadLine();
+                        int.TryParse(Licz1, out Licz1X);
+
+                        Console.WriteLine("Podaj drugą liczbę: ");
+                        Licz2 = Console.ReadLine();
+                        int.TryParse(Licz2, out Licz2X);
+
+                        wynik = Licz1X / Licz2X;
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Wynik działania {0}/{1} wynosi: {3}", Licz1X, Licz2X, wynik);
+                        break;
+                }
+            }
+        }
+    }
+}
