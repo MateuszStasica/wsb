@@ -1,0 +1,35 @@
+using System;
+using Outer.Middle.Inner;
+
+namespace przestrzenie_nazw_zaaw
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Prog ob = new Prog();
+            Console.WriteLine("\n" + ob.Add(3, 5));
+            Console.ReadKey();
+        }
+    }
+}
+
+namespace Outer
+{
+    namespace Middle
+    {
+        namespace Inner
+        {
+            class Prog
+            {
+                public int x, y;
+
+                public int Add(int x, int y)
+                {
+                    return x + y;
+                }
+            }
+        }
+    }
+}
