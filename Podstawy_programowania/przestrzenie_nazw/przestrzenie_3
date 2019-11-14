@@ -1,0 +1,33 @@
+using System;
+
+namespace funkcje
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 10, y = 5;
+
+            Console.WriteLine("");
+            Add(x, y);
+
+            Console.ReadKey();
+        }
+        static void Show()
+        {
+            Console.WriteLine("WOW IKS DE LOL");
+        }
+
+        static int Show1()
+        {
+
+            return 0;
+        }
+
+        static void Add(int A, int B)
+        {
+            int result = A + B;
+            Console.WriteLine("Wynik dodawania: {0}", result);
+        }
+    }
+}
