@@ -1,0 +1,44 @@
+using System;
+
+namespace zadania_funkcje
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+             * Napisz funkcję, która wyświetli, czy liczba jest parzysta lub nieparzysta
+             * Funkcja zwraca string (liczba parzysta/ liczba nieparzysta)
+             * */
+            int O = 10;
+
+
+            Console.WriteLine(parzysta(O));
+
+            do
+            {
+
+            } while (true);
+        }
+
+        static string parzysta(int x)
+            { 
+
+            if (x % 2 == 0)
+                
+                return "Liczba jest parzysta";
+            
+                else return "Liczba jest nieparzysta";
+           
+            }
+        static int Sum(int x,int sum=0)
+        {
+            do
+            {
+                sum = sum + x % 10;
+                x /= 10;
+            } while (x != 0);
+            return sum;
+        }
+    }
+}
