@@ -1,0 +1,33 @@
+using System;
+
+namespace funkcje_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] tab = new int[2];
+            tab[0] = 5;
+            tab[1] = 10;
+
+            Console.WriteLine("Wartość tablicy przed wywołaniem funkcji: {0} i {1}", tab[0], tab[1]);
+            Console.WriteLine("Wartość tablicy po wywołaniem funkcji: {0} i {1}", tab[0], tab[1]);
+            Console.ReadKey();
+        }
+        static void Tab1(int[]tab)
+        {
+            tab[0] = 50;
+            tab[1] = 100;
+            Console.WriteLine("Wartość tablicy wewnątrz funkcji: {0} i {1}", tab[0], tab[1]);
+        }
+
+        static void ShowTab (int[] tab)
+        {
+            Console.WriteLine("Wartość w tablicy: ");
+            foreach(int item in tab)
+            {
+                Console.Write("{0}", item);
+            }
+        }
+    }
+}
