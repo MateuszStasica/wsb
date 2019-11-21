@@ -1,0 +1,173 @@
+using System;
+
+namespace kolokwium
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("WSB - kolokwium nr 1");
+
+
+            Console.Clear();
+            Console.WriteLine("Podaj długosć podstawy trójkąta: ");
+            string a = Console.ReadLine();
+            int dlugosc = int.Parse(a);
+
+            Console.Clear();
+            Console.WriteLine("Podaj wysokość podstawy trójkąta: ");
+            string b = Console.ReadLine();
+            int wysokosc = int.Parse(b);
+
+
+
+
+
+            Console.WriteLine("Podaj swój wiek: ");
+            string c = Console.ReadLine();
+            int wiek;
+
+           // while (true)
+           // {
+                try
+                {
+                    wiek = int.Parse(c);
+                    if (wiek < 0)
+                    {
+                        throw new Exception("Wiek nie może być mniejszy od 0!");
+                    }
+                    if (wiek % 1 != 0)
+                    {
+                        throw new Exception("Podaj liczbę całkowitą!");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Podaj poprawny format");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Ups! Coś poszło nie tak!");
+                }
+            //}
+
+            //MENU
+
+            Console.WriteLine(""+
+                "1. Pole trójkąta\n" +
+                "2. Wyświetl, czy wiek jest liczbą parzystą\n" +
+                "3. Macierz\n" +
+                "4. Rodzina\n" +
+                "0. Wyjdź");
+            string choice = Console.ReadLine();
+            int wybor = int.Parse(choice);
+
+            switch (wybor)
+            {
+                case 1:
+                    {
+                       
+                        Console.Clear();
+                        float pole_trojkata= ((dlugosc*wysokosc)/2);
+                        try
+                        {
+                            Console.WriteLine("" +
+                            "Podstawa trójkąta: {1}" +
+                            "Wysokość trójkąta: {2}" +
+                            "Pole trójkąta: {3}", dlugosc, wysokosc, pole_trojkata);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Podaj poprawny format");
+                        }
+
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Podaj swój wiek: ");
+                        string x = Console.ReadLine();
+                        int wiek1 = int.Parse(x);
+                        if (wiek1 % 2 == 0)
+                        {
+                            Console.WriteLine("Wiek jest liczbą parzystą");
+                        }
+                        else
+                            Console.WriteLine("Wiek nie jest liczbą parzystą");
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine("Podaj stopień macierzy");
+                        string level = Console.ReadLine();
+                        int poziom = int.Parse(level);
+
+
+                        int dlugosc_macierzy = poziom * poziom;
+                        string[] Tab = new string[dlugosc_macierzy];
+                        
+
+                        //WYPEŁNIANIE TABLICY
+                        for (int i = 0; i < dlugosc_macierzy; i++)
+                        {
+                            if (i % poziom == 0 || i == 1)
+                            {
+                                Tab[i] = "WSB";
+                            }
+                            else
+                            {
+                                Tab[i] = Convert.ToString(i);
+                                
+                            }
+                        }
+                        //WYŚWIETLANIE MACIERZY
+                        for(int i=0;i<poziom;i++)
+                        {
+                            for(int j=0;j<poziom;j++)
+                            {
+                                Console.Write(Tab[i]+" ");
+                            }
+                            Console.WriteLine();
+                        }
+                        break;
+                    }
+                case 0:
+                    {
+                        // Environment.Exit();
+                        break;
+                    }
+                case 4:
+                    {
+                        Rodzina();
+                        break;
+                    }
+            }
+
+        }
+
+        public static void Rodzina()
+            {
+            Console.WriteLine("Podaj liczbę osób w rodzinie: ");
+            string x = Console.ReadLine();
+            int l_osob = int.Parse(x);
+            string[,] Tab = new string[1, l_osob];
+            
+            for(int i=0;i<l_osob;i++)
+            {
+                Console.WriteLine("Podaj imię osoby: ");
+                Tab[i, 0] = Console.ReadLine();
+                Console.WriteLine("Podaj wiek dla tej osoby: ");
+                Tab[i, 1] = Console.ReadLine();
+            }
+
+            for(int i=0;i<=l_osob;i++)
+            {
+                Console.WriteLine("{0} ma {1} lat", Tab[i,0], Tab[i,1]);
+            }
+
+            }
+    }
+       
+       
+}
+
