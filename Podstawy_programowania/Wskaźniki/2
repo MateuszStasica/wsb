@@ -1,0 +1,42 @@
+using System;
+
+namespace wzkaźniki_2
+{
+    class Program
+    {
+        public 
+
+        unsafe static void Swap (int* a, int* b)
+        {
+            
+            int pom = *a;
+            *a = *b;
+            *b = pom;
+        }
+        unsafe static void Main(string[] args)
+        {
+            //Pierwszy sposób
+
+            int x = 1;
+            int y = 2;
+
+            Console.WriteLine("Wartości przed zamianą: x={0}, y={1}", x,y);
+            Swap(&x , &y);
+            Console.WriteLine("Wartości po zamianie: x={0}, y={1}", x, y);
+
+            Console.ReadKey();
+
+            //Drugi sposób;
+            int a = 100;
+            int b = 200;
+
+            int* a1 = &a;
+            int* b1 = &b;
+
+
+            Console.WriteLine("Wartości przed zamianą: a={0}, b={1}", a, b);
+            Swap(a1, b1);
+            Console.WriteLine("Wartości po zamianie: a={0}, b={1}", a, b);
+        }
+    }
+}
