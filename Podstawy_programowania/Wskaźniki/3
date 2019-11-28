@@ -1,0 +1,22 @@
+using System;
+
+namespace wskaźniki_3
+{
+    class Program
+    {//WYŚWIETLANIE ADRESÓW ELEMENTÓW TABLICY
+        unsafe static void Main(string[] args)
+        {
+            int[] tab = { 10, 20, 30, 40, 50 };
+
+            fixed (int* x = tab) //Wskaźnik do całej tablicy (czyli do pierwszego elementu)
+
+                
+                
+                    for(int i=0; i<tab.Length;i++)
+                {
+
+                    Console.WriteLine("Adres dla {0}: {1}",tab[i], (int)x+i); //Wskaźnik do pierwszego elem + i
+                }
+        }
+    }
+}
