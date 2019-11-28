@@ -1,0 +1,23 @@
+using System;
+
+namespace wskaźniki_4
+{
+    class Program
+    {
+        struct Test
+        {
+           public int n;
+        }
+
+        unsafe static void Main(string[] args)
+        {
+            Test x = new Test();
+            Test* p = &x;
+            p->n = 20; //Przypisywanie wartości do wskaźnika
+                       //Inny sposób (*p).n = 20;
+
+            Console.WriteLine(x.n) ;
+            Console.ReadKey();
+        }
+    }
+}
