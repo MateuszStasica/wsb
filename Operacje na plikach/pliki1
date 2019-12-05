@@ -1,0 +1,70 @@
+using System;
+
+using System.IO;
+
+
+namespace pliki
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Pliki, pliki, pliki, od liczenia mam odciski");
+
+            DirectoryInfo wsbDir = new DirectoryInfo("."); //tworzenie zmiennej przechowującej inf o plikach
+
+            Console.WriteLine(wsbDir.FullName); //Wyświetla ścieżkę podanego pliku
+
+            DirectoryInfo studentDir = new DirectoryInfo(@"C:\Users\Student\Desktop"); 
+            
+
+            Console.WriteLine(studentDir.FullName);
+            Console.WriteLine(studentDir.Name); //Pokazuje folder, w którym aktualnie się znajdujemy
+            Console.WriteLine(studentDir.Parent); 
+            Console.WriteLine(studentDir.Attributes);
+            Console.WriteLine(studentDir.CreationTime); //Pokazuje datę i godzinę utworzenia pliku
+
+            DirectoryInfo dataDir = new DirectoryInfo(@"C:\Users\Student\C#Files");
+
+            string[] customers =
+            {
+                "Grzegorz Brzęczyszczykiewicz",
+                "Waldemar Wiercipałąk",
+                "Zbigniew Waligóra"
+            };
+
+            Directory.CreateDirectory(@"\Users\student\C#Files"); //Tworzenie folderu
+
+            string Path = @"C:\Users\student\C#Files";
+
+            string textFilePath = @"C:\Users\student\C#Files\testFile1.txt"; //Tworzenie pliku
+
+            File.WriteAllLines(textFilePath, customers); //Zapisuje customers w testFile1.txt
+
+            try
+            {
+                if (Directory.Exists(Path)) //Jeśli dany folder istnieje
+                {
+                    Console.WriteLine("\nKatalog istnieje");
+                }
+                else //Jeżeli nie ma takiego katalogu, to go utwórz razem z plikiem
+                {
+                    // Directory.CreateDirectory(@"\Users\student\C#Files");
+                    // string textFilePath = @"C:\Users\student\C#Files\testFile1.txt";
+
+                    Console.WriteLine("\nUtworzono pomyślnie katalog: {0}", Directory.GetCreationTime(Path));
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Coś poszło nie tak");
+            }
+
+            
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
