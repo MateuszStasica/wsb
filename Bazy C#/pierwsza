@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace dejta_bejs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string sql = "";
+            SqlDataReader read = null;
+
+            SqlConnection conn = new SqlConnection("Data Source=localhost\\MSSQLSERVER01; Initial Catalog=komis1; User=krystyna; Password=qazwsx123; Integrated Security=true");
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("Prawidłowe połączenie z bazą danych komis1");
+
+                sql = "select * from [ludki];";
+                SqlCommand result = new SqlCommand(sql, conn);
+
+                read = result.ExecuteReader();
+
+                while(read.Read())
+                    {
+                    Console.WriteLine("Imię: {0}, nazwisko: {1}",read[1], read[2]);
+                    }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if(conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
